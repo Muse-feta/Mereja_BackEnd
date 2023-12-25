@@ -4,7 +4,8 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 const checkController = (req, res) => {
-    res.send('user checked')
+    const {email} = req.user
+    res.status(200).json({status: true, message: 'user succesfully checked', email})
 }
 const registerController = async(req, res) => {
     const { firstName, lastName, email, password } = req.body

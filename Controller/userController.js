@@ -113,13 +113,13 @@ const forgotController = async (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: "fetamuse@gmail.com",
-        pass: "kjxvanlascwgbqec",
+        user: process.env.EMAIL,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     var mailOptions = {
-      from: "fetamuse@gmail.com",
+      from: process.env.EMAIL,
       to: `${user.email}`,
       subject: "Reset Your Password",
       text: `https://muse-mereja-sample-project.netlify.app/reset-password/${user.email}/${token}`,
